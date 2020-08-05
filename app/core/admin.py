@@ -10,12 +10,12 @@ class UserAdmin(BaseUserAdmin):
     list_display = ['email', 'name']
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (('Personal Info'), {'fields': ('name',)}),
+        (_('Personal Info'), {'fields': ('name',)}),
         (
-            ('Permissions'),
+            _('Permissions'),
             {'fields': ('is_active', 'is_staff', 'is_superuser')}
         ),
-        (('Important dates'), {'fields': ('last_login',)})
+        (_('Important dates'), {'fields': ('last_login',)})
     )
     add_fieldsets = (
         (None, {

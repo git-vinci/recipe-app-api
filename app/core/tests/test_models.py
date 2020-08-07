@@ -32,7 +32,7 @@ class ModelTests(TestCase):
 
         self.assertEqual(user.email, email.lower())
 
-    def test_new_usre_invalid_email(self):
+    def test_new_user_invalid_email(self):
         """Test creating user with no email raises error\
         メールのないユーザーを作成するテストでエラーが発生する"""
         with self.assertRaises(ValueError):
@@ -57,3 +57,12 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(str(tag), tag.name)
+
+    def test_ingredient_str(self):
+        """Test the ingredient string respresentation"""
+        ingredient = models.Ingredient.objects.create(
+            user=sample_user(),
+            name='Cucumber'
+        )
+
+        self.assertEqual(str(ingredient), ingredient.name)
